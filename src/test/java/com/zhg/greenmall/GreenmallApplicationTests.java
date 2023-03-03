@@ -14,8 +14,6 @@ class GreenmallApplicationTests {
 
     @Test
     void contextLoads() {
-        userMapper.addUser("test1","test");
-
         System.out.println(userMapper.findUserByName("test1"));
     }
 

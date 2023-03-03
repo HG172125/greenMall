@@ -1,5 +1,8 @@
 package com.zhg.greenmall.service;
 
+import com.zhg.greenmall.entity.User;
+
 public interface UserService {
-    void addUser(String username,String password);
+    boolean addUser(String name,String Password);
+    User findUserByName(String name);
 }

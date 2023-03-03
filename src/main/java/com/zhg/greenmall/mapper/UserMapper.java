@@ -4,8 +4,6 @@ import com.zhg.greenmall.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.web.bind.annotation.CrossOrigin;
-
 import java.util.Vector;
 
 @Mapper
