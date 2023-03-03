@@ -1,27 +1,27 @@
 package com.zhg.greenmall.controller;
 
+import com.zhg.greenmall.entity.User;
 import com.zhg.greenmall.service.serviceImpl.UserServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+
 
 @RestController
 @CrossOrigin
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
+    @Resource
     UserServiceImpl userService;
-    @RequestMapping("/add")
-    public boolean addUser(String username,String password ){
 
-        if(userService.findUserByName(username)==null){
-            return userService.addUser(username,password);
+    @PostMapping ("/add")
+    public boolean addUser(@RequestBody User user){
+        System.out.println(user);
+        if(userService.findUserByName(user.getUsername())==null){
+            return userService.addUser(user.getUsername(),user.getPassword());
         }else {
-            return true;
+            return false;
         }
 
 
