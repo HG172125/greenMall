@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/greenmall
+    username: HG
+    password: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  security:
+    user:
+      name: test
+      password: 12345
+      roles:
+        - user
+        - admin
+  freemarker:
+    check-template-location: false

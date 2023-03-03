@@ -1,0 +1,11 @@
+package com.zhg.greenmall.entity;
+
+import lombok.Data;
+
+@Data
+public class User {
+    int id;
+    String name;
+    String password;
+    String roles;
+}
