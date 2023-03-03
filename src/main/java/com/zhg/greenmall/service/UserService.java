@@ -5,4 +5,5 @@ import com.zhg.greenmall.entity.User;
 public interface UserService {
     boolean addUser(String name,String Password);
     User findUserByName(String name);
+    User findUserByNameAndPassword(String username,String password);
 }
