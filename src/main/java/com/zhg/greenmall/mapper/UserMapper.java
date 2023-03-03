@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.Vector;
 
 @Mapper
-
 public interface UserMapper {
 
     @Select("select * from user")
