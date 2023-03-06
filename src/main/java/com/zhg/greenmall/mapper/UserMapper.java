@@ -7,10 +7,6 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface UserMapper {
-
-//    @Select("select * from user")
-//    Vector<User> findAll();
-
     @Select("select * from user where username = #{username}")
     User findUserByName(String username);
 
