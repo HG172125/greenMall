@@ -12,19 +12,10 @@ class GreenmallApplicationTests {
     @Resource
     UserMapper userMapper;
 
-    @Test
-    void contextLoads() {
-        System.out.println(userMapper.findUserByName("test1"));
-    }
-
 
     @Test
     void test01(){
-        if(userMapper.findUserByName("test1") != null){
-            System.out.println("用户名重复！！");
-        } else{
-            userMapper.addUser("test1","test1");
-        }
+        System.out.println(userMapper.findUserByNameAndPassword("123","123"));
     }
 
 
