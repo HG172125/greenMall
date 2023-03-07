@@ -1,9 +1,11 @@
 package com.zhg.greenmall;
 
+import com.zhg.greenmall.controller.StoreController;
 import com.zhg.greenmall.entity.Store;
 import com.zhg.greenmall.entity.User;
 import com.zhg.greenmall.mapper.StoreMapper;
 import com.zhg.greenmall.mapper.UserMapper;
+import com.zhg.greenmall.service.StoreService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -13,18 +15,14 @@ import java.security.cert.CertStoreSpi;
 @SpringBootTest
 class GreenmallApplicationTests {
     @Resource
-    StoreMapper storeMapper;
+    StoreService storeService;
+    User user;
+    Test test;
 
     @Test
     void test01(){
-        Store store = new Store();
-        store.setId(1);
-        store.setSname("123");
-        store.setSusername("123");
-        store.setSuserphone("123");
-        store.setSuserphone("123");
-        System.out.println(storeMapper.findOneBySusername("store"));
-        System.out.println("m");
+        storeService.addStore("1234","1234","1234","1234");
+        System.out.println(storeService.findOneByName("1234"));
     }
 
     @Test

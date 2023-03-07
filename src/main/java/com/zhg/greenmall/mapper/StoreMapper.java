@@ -7,18 +7,22 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface StoreMapper {
-//添加商户
-    @Insert("insert into store(sname,susername,suserphone,spassword) " +
-            "values (#{sname},#{susername}," +
-            "#{suserphone},#{spassword})")
+    /**
+     *添加商户
+     */
+    @Insert("insert into store(sname,susername,suserphone,spassword) VALUES(#{sname},#{susername},#{suserphone},#{spassword})")
     void addStore(String sname,String susername ,String suserphone,String spassword);
 
-//    姓名查找商户
+    /**
+     * 姓名查找
+     */
     @Select("SELECT\n" +
             "\tstore.*\n" +
             "FROM\n" +
             "\tstore\n" +
             "WHERE\n" +
             "\tstore.sname = #{sname}")
-    Store findOneBySusername(String susername);
+    Store findOneByName(String name);
+
+
 }

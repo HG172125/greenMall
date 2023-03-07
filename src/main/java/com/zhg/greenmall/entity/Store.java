@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Store {
-    int id;
+    int sid;
     String sname;
     String susername;
     String suserphone;
