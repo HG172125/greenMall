@@ -24,5 +24,17 @@ public interface StoreMapper {
             "\tstore.sname = #{sname}")
     Store findOneByName(String name);
 
+    /**
+     * 登录查询
+     */
+
+    @Select("SELECT\n" +
+            "\tstore.*\n" +
+            "FROM\n" +
+            "\tstore\n" +
+            "WHERE\n" +
+            "\tstore.sname = #{sname} AND\n" +
+            "\tstore.spassword = #{spassword}")
+    Store findONeByNameAndPass(String sname,String spassword);
 
 }

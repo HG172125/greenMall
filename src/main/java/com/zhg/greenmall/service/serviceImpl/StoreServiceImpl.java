@@ -15,6 +15,7 @@ public class StoreServiceImpl implements StoreService {
 
     @Override
     public boolean addStore(String sname,String susername ,String suserphone,String spassword) {
+        System.out.println(sname);
         try {
             storeMapper.addStore(sname, susername, suserphone, spassword);
             return true;
@@ -26,6 +27,11 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public Store findOneByName(String name) {
         return storeMapper.findOneByName(name);
+    }
+
+    @Override
+    public Store findONeByNameAndPass(String name, String pass) {
+        return storeMapper.findONeByNameAndPass(name,pass);
     }
 
 }

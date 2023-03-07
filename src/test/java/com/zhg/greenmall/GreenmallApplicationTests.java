@@ -21,8 +21,8 @@ class GreenmallApplicationTests {
 
     @Test
     void test01(){
-        storeService.addStore("1234","1234","1234","1234");
-        System.out.println(storeService.findOneByName("1234"));
+
+        System.out.println(storeService.findONeByNameAndPass("123","123"));
     }
 
     @Test
