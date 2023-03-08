@@ -24,7 +24,6 @@ public class GoodsController {
     @PostMapping("add")
     Boolean addGoods(@RequestBody Goods goods){
         System.out.println(goods.toString());
-        System.out.println(goodsService.addStore(goods.getSid(),goods.getGname(),goods.getGimage(),goods.getGprices(),goods.getGlable(),goods.getGintroduce()));
         return goodsService.addStore(goods.getSid(),goods.getGname(),goods.getGimage(),goods.getGprices(),goods.getGlable(),goods.getGintroduce());
     }
 }
