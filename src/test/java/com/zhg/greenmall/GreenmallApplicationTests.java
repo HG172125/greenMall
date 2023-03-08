@@ -23,7 +23,7 @@ class GreenmallApplicationTests {
     @Test
     void test01(){
 
-        System.out.println(storeService.findONeByNameAndPass("123","123"));
+        System.out.println(goodsService.findGoodsById(9).toString());
     }
 
     @Test

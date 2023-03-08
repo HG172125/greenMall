@@ -23,7 +23,7 @@ public interface GoodsMapper {
             "FROM\n" +
             "\tgoods\n" +
             "WHERE\n" +
-            "\tgoods.gid = 2")
+            "\tgoods.gid = #{gid}")
     Goods findGoodsById(int sid);
 
 }

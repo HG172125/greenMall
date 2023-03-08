@@ -2,7 +2,6 @@ package com.zhg.greenmall.controller;
 
 import com.zhg.greenmall.entity.Store;
 import com.zhg.greenmall.service.StoreService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
