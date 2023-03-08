@@ -5,6 +5,7 @@ import com.zhg.greenmall.entity.Store;
 import com.zhg.greenmall.entity.User;
 import com.zhg.greenmall.mapper.StoreMapper;
 import com.zhg.greenmall.mapper.UserMapper;
+import com.zhg.greenmall.service.GoodsService;
 import com.zhg.greenmall.service.StoreService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,8 +17,8 @@ import java.security.cert.CertStoreSpi;
 class GreenmallApplicationTests {
     @Resource
     StoreService storeService;
-    User user;
-    Test test;
+    @Resource
+    GoodsService goodsService;
 
     @Test
     void test01(){
@@ -28,6 +29,7 @@ class GreenmallApplicationTests {
     @Test
     void test02(){
 
+        System.out.println(goodsService.addStore(123,"123","123","123","123","123"));
     }
 
 

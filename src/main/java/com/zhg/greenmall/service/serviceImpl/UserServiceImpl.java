@@ -3,15 +3,16 @@ package com.zhg.greenmall.service.serviceImpl;
 import com.zhg.greenmall.entity.User;
 import com.zhg.greenmall.mapper.UserMapper;
 import com.zhg.greenmall.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
 
 
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
-    @Autowired
+    @Resource
     UserMapper userMapper;
 
     @Override
