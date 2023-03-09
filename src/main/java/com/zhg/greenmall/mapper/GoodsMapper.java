@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.ArrayList;
+
 @Mapper
 public interface GoodsMapper {
 
@@ -24,6 +26,19 @@ public interface GoodsMapper {
             "\tgoods\n" +
             "WHERE\n" +
             "\tgoods.gid = #{gid}")
-    Goods findGoodsById(int sid);
+    Goods findGoodsById(int gid);
+
+    /**
+     * 通过sid查找所有商品
+     */
+    @Select("SELECT\n" +
+            "\t*, \n" +
+            "\tgoods.*\n" +
+            "FROM\n" +
+            "\tgoods\n" +
+            "WHERE\n" +
+            "\tgoods.sid = #{sid}")
+    ArrayList<Goods> findAllGooodsBySid(int sid);
+
 
 }

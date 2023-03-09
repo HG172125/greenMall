@@ -6,6 +6,7 @@ import com.zhg.greenmall.service.GoodsService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 
 @Service
 public class GoodsServiceImpl implements GoodsService {
@@ -29,5 +30,10 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public Goods findGoodsById(int gid) {
         return goodsMapper.findGoodsById(gid);
+    }
+
+    @Override
+    public ArrayList<Goods> findAllGooodsBySid(int sid) {
+        return goodsMapper.findAllGooodsBySid(sid);
     }
 }
