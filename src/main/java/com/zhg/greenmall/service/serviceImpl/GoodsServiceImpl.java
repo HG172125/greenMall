@@ -36,4 +36,14 @@ public class GoodsServiceImpl implements GoodsService {
     public ArrayList<Goods> findAllGooodsBySid(int sid) {
         return goodsMapper.findAllGooodsBySid(sid);
     }
+
+    @Override
+    public boolean updateGoods(String gname,String gimage,String gprices,String glable,String gintroduce,int gid) {
+        try {
+            goodsMapper.updateGoods(gname,gimage,gprices,glable,gintroduce,gid);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
 }

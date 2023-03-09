@@ -4,6 +4,7 @@ import com.zhg.greenmall.entity.Goods;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.ArrayList;
 
@@ -16,6 +17,12 @@ public interface GoodsMapper {
      */
     @Insert("insert into goods(sid,gname,gimage,gprices,glable,gintroduce) VALUES(#{sid},#{gname},#{gimage},#{gprices},#{glable},#{gintroduce})")
     void addStore(int sid,String gname,String gimage ,String gprices,String glable,String gintroduce);
+
+    /**
+     * 通过gid修改商品信息
+     */
+    @Update("UPDATE goods SET gname=#{gname},gimage=#{gimage},gprices=#{gprices},glable=#{glable},gintroduce=#{gintroduce}  WHERE gid=#{gid}")
+    void updateGoods(String gname,String gimage,String gprices,String glable,String gintroduce,int gid);
 
     /**
      * 通过gid查找商品

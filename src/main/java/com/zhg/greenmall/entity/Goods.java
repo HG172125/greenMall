@@ -10,6 +10,7 @@ public class Goods {
     String gname;
     String gimage;
     String gprices;
+    String gnumber;
     String glable;
     String gintroduce;
 }
