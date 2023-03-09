@@ -30,8 +30,8 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
-    public Store findONeByNameAndPass(String name, String pass) {
-        return storeMapper.findONeByNameAndPass(name,pass);
+    public Store findONeByNameAndPass(String susername, String pass) {
+        return storeMapper.findONeByNameAndPass(susername,pass);
     }
 
 }

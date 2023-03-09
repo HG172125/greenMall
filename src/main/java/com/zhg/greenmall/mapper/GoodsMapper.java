@@ -1,16 +1,18 @@
 package com.zhg.greenmall.mapper;
 
 import com.zhg.greenmall.entity.Goods;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.ArrayList;
 
 @Mapper
 public interface GoodsMapper {
 
+    /**
+     * 通过gid删除商品
+     */
+    @Delete("DELETE FROM goods WHERE gid=#{gid}")
+    void deleteGoodsByGid(int gid);
 
     /**
      * 添加商品

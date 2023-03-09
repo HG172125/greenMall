@@ -46,4 +46,14 @@ public class GoodsServiceImpl implements GoodsService {
             return false;
         }
     }
+
+    @Override
+    public boolean deleteGoodsByGid(int gid) {
+        try {
+            goodsMapper.deleteGoodsByGid(gid);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
 }

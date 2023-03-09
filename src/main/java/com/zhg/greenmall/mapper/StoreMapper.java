@@ -33,8 +33,8 @@ public interface StoreMapper {
             "FROM\n" +
             "\tstore\n" +
             "WHERE\n" +
-            "\tstore.sname = #{sname} AND\n" +
+            "\tstore.susername = #{susername} AND\n" +
             "\tstore.spassword = #{spassword}")
-    Store findONeByNameAndPass(String sname,String spassword);
+    Store findONeByNameAndPass(String susername,String spassword);
 
 }

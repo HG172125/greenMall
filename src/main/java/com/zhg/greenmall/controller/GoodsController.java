@@ -4,7 +4,6 @@ import com.zhg.greenmall.entity.Goods;
 import com.zhg.greenmall.service.GoodsService;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 @RestController
@@ -15,6 +14,16 @@ public class GoodsController {
 
     @Resource
     GoodsService goodsService;
+
+
+    /**
+     * 通过gid删除商品信息
+     */
+    @PostMapping("delete")
+    boolean deleteGoods(@RequestBody Goods goods){
+        System.out.println("gid deleteGoods");
+        return goodsService.deleteGoodsByGid(goods.getGid());
+    }
 
 
     /**

@@ -25,9 +25,10 @@ public class StoreController {
         return storeService.addStore(store.getSname(),store.getSusername(),store.getSuserphone(),store.getSpassword());
     }
 
-    @PostMapping("/findone")
+    @PostMapping("/login")
     Store findStore(@RequestBody Store store){
-        return storeService.findONeByNameAndPass(store.getSname(),store.getSpassword());
+        System.out.println("login"+store.getSusername());
+        return storeService.findONeByNameAndPass(store.getSusername(),store.getSpassword());
     }
 
 }
