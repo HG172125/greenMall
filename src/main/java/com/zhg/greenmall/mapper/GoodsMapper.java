@@ -11,20 +11,25 @@ public interface GoodsMapper {
     /**
      * 通过gid删除商品
      */
-    @Delete("DELETE FROM goods WHERE gid=#{gid}")
-    void deleteGoodsByGid(int gid);
+    @Delete("DELETE FROM goods WHERE goods_id=#{goods_id}")
+    void deleteGoodsByGid(int goods_id);
 
     /**
      * 添加商品
      */
-    @Insert("insert into goods(sid,gname,gimage,gprices,glable,gintroduce) VALUES(#{sid},#{gname},#{gimage},#{gprices},#{glable},#{gintroduce})")
-    void addStore(int sid,String gname,String gimage ,String gprices,String glable,String gintroduce);
+    @Insert("insert into goods(store_id,goods_time,goods_name,goods_photo,goods_prices,goods_stock,goods_lable,goods_description) " +
+            "VALUES(#{store_id},#{goods_time},#{goods_name},#{goods_photo},#{goods_prices},#{goods_stock},#{goods_lable},#{goods_description})")
+    void addStore(int store_id,String goods_time,String goods_name,String goods_photo,
+                  String goods_prices,String goods_stock,String goods_lable,String goods_description);
 
     /**
      * 通过gid修改商品信息
      */
-    @Update("UPDATE goods SET gname=#{gname},gimage=#{gimage},gprices=#{gprices},glable=#{glable},gintroduce=#{gintroduce}  WHERE gid=#{gid}")
-    void updateGoods(String gname,String gimage,String gprices,String glable,String gintroduce,int gid);
+    @Update("UPDATE goods SET goods_name=#{goods_name},goods_photo=#{goods_photo}," +
+            "goods_prices=#{goods_prices},goods_stock=#{goods_stock},goods_lable=#{goods_lable}," +
+            "gintroduce=#{goods_description}  WHERE gid=#{goods_id}")
+    void updateGoods(String goods_name,String goods_photo,String goods_prices,
+                     String goods_stock,String goods_lable,String goods_description,int goods_id);
 
     /**
      * 通过gid查找商品
@@ -34,8 +39,8 @@ public interface GoodsMapper {
             "FROM\n" +
             "\tgoods\n" +
             "WHERE\n" +
-            "\tgoods.gid = #{gid}")
-    Goods findGoodsById(int gid);
+            "\tgoods.goods_id = #{goods_id}")
+    Goods findGoodsById(int goods_id);
 
     /**
      * 通过sid查找所有商品
@@ -46,8 +51,8 @@ public interface GoodsMapper {
             "FROM\n" +
             "\tgoods\n" +
             "WHERE\n" +
-            "\tgoods.sid = #{sid}")
-    ArrayList<Goods> findAllGooodsBySid(int sid);
+            "\tgoods.store_id = #{store_id}")
+    ArrayList<Goods> findAllGooodsBySid(int store_id);
 
 
 }

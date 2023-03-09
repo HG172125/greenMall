@@ -15,6 +15,9 @@ public class UserServiceImpl implements UserService {
     @Resource
     UserMapper userMapper;
 
+    /**
+     *添加用户
+     */
     @Override
     public boolean addUser(String username, String password) {
         try {
@@ -30,8 +33,13 @@ public class UserServiceImpl implements UserService {
         return userMapper.findUserByName(name);
     }
 
+    /**
+     * 登录查询
+     */
     @Override
     public User findUserByNameAndPassword(String username, String password) {
-        return userMapper.findUserByNameAndPassword(username,password);
+           return userMapper.findUserByNameAndPassword(username,password);
     }
+
+
 }

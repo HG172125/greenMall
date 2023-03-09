@@ -13,15 +13,16 @@ public class StoreServiceImpl implements StoreService {
     @Resource
     StoreMapper storeMapper;
 
+
     @Override
-    public boolean addStore(String sname,String susername ,String suserphone,String spassword) {
-        System.out.println(sname);
-        try {
-            storeMapper.addStore(sname, susername, suserphone, spassword);
-            return true;
-        }catch (Exception e){
-            return false;
-        }
+    public boolean addStore(String store_name, String store_username, String store_password) {
+      try {
+          storeMapper.addStore(store_name,store_username,store_password);
+          return true;
+      }catch (Exception e){
+          return false;
+      }
+
     }
 
     @Override
@@ -30,8 +31,8 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
-    public Store findONeByNameAndPass(String susername, String pass) {
-        return storeMapper.findONeByNameAndPass(susername,pass);
+    public Store findOneByNameAndPass(String susername, String pass) {
+        return storeMapper.findOneByNameAndPass(susername,pass);
     }
 
 }

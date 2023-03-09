@@ -18,9 +18,12 @@ public class GoodsServiceImpl implements GoodsService {
      *添加
      */
     @Override
-    public boolean addStore(int sid,String gname, String gimage, String gprices, String glable, String gintroduce) {
+   public boolean addStore(int store_id,String goods_time,String goods_name,String goods_photo,
+                     String goods_prices,String goods_stock,String goods_lable,String goods_description)
+    {
         try {
-            goodsMapper.addStore(sid,gname,gimage,gprices,glable,gintroduce);
+            goodsMapper.addStore(store_id,goods_time,goods_name,goods_photo,
+                    goods_prices,goods_stock,goods_lable,goods_description);
             return true;
         }catch (Exception e){
             return false;
@@ -38,9 +41,10 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     @Override
-    public boolean updateGoods(String gname,String gimage,String gprices,String glable,String gintroduce,int gid) {
+    public boolean updateGoods(String goods_name,String goods_photo,String goods_prices,
+                               String goods_stock,String goods_lable,String goods_description,int goods_id){
         try {
-            goodsMapper.updateGoods(gname,gimage,gprices,glable,gintroduce,gid);
+            goodsMapper.updateGoods(goods_name,goods_photo,goods_prices,goods_stock,goods_lable,goods_description,goods_id);
             return true;
         }catch (Exception e){
             return false;

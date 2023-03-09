@@ -22,30 +22,26 @@ public class UserController {
     }
 
     @PostMapping("/userinfo")
-    public User getUserByname(String name){
+    public User getUserByName(String name){
         return userService.findUserByName(name);
     }
 
+    /**
+     *添加用户
+     */
     @PostMapping ("/add")
     public boolean addUser(@RequestBody User user){
-        System.out.println(user);
-        if(userService.findUserByName(user.getUsername())==null){
-            return userService.addUser(user.getUsername(),user.getPassword());
-        }else {
-            return false;
-        }
+        System.out.println("添加用户"+user);
+        return userService.addUser(user.getUser_name(),user.getUser_password());
     }
 
+    /**
+     * 用户登录
+     */
     @PostMapping("/login")
-    public String login(@RequestBody User user){
-        System.out.println(user);
-
-        if (userService.findUserByName(user.getUsername())==null){
-            return "1";
-        }else if (userService.findUserByNameAndPassword(user.getUsername(), user.getPassword())==null){
-            return "2";
-        }else {
-            return "3";
-        }
+    public User login(@RequestBody User user){
+        System.out.println("登录查询用户"+user);
+        System.out.println("查询结果："+userService.findUserByNameAndPassword(user.getUser_name(),user.getUser_password()));
+       return userService.findUserByNameAndPassword(user.getUser_name(),user.getUser_password());
     }
 }

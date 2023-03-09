@@ -4,9 +4,8 @@ import lombok.Data;
 
 @Data
 public class Store {
-    int sid;
-    String sname;
-    String susername;
-    String suserphone;
-    String spassword;
+    int store_id;
+    String store_name;
+    String store_username;
+    String store_password;
 }

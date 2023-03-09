@@ -10,8 +10,8 @@ public interface StoreMapper {
     /**
      *添加商户
      */
-    @Insert("insert into store(sname,susername,suserphone,spassword) VALUES(#{sname},#{susername},#{suserphone},#{spassword})")
-    void addStore(String sname,String susername ,String suserphone,String spassword);
+    @Insert("insert into store(store_name,store_username,store_password) VALUES(#{store_name},#{store_username},#{store_password})")
+    void addStore(String store_name,String store_username,String store_password);
 
     /**
      * 姓名查找
@@ -21,20 +21,19 @@ public interface StoreMapper {
             "FROM\n" +
             "\tstore\n" +
             "WHERE\n" +
-            "\tstore.sname = #{sname}")
-    Store findOneByName(String name);
+            "\tstore.store_username = #{store_username}")
+    Store findOneByName(String store_username);
 
     /**
      * 登录查询
      */
-
     @Select("SELECT\n" +
             "\tstore.*\n" +
             "FROM\n" +
             "\tstore\n" +
             "WHERE\n" +
-            "\tstore.susername = #{susername} AND\n" +
-            "\tstore.spassword = #{spassword}")
-    Store findONeByNameAndPass(String susername,String spassword);
+            "\tstore.store_username = #{store_username} AND\n" +
+            "\tstore.store_password = #{store_password}")
+    Store findOneByNameAndPass(String store_username,String store_password);
 
 }

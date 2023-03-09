@@ -22,7 +22,7 @@ public class GoodsController {
     @PostMapping("delete")
     boolean deleteGoods(@RequestBody Goods goods){
         System.out.println("gid deleteGoods");
-        return goodsService.deleteGoodsByGid(goods.getGid());
+        return goodsService.deleteGoodsByGid(goods.getGoods_id());
     }
 
 
@@ -32,7 +32,8 @@ public class GoodsController {
     @PostMapping("/update")
     boolean updateGoods(@RequestBody Goods goods){
         System.out.println("EditeGoods");
-        return goodsService.updateGoods(goods.getGname(),goods.getGimage(),goods.getGprices(),goods.getGlable(),goods.getGintroduce(),goods.getGid());
+        return goodsService.updateGoods(goods.getGoods_name(),goods.getGoods_photo(),goods.getGoods_prices(),
+                goods.getGoods_stock(),goods.getGoods_lable(),goods.getGoods_description(),goods.getGoods_id());
     }
 
     /**
@@ -40,16 +41,19 @@ public class GoodsController {
      */
     @PostMapping ("/findall")
     ArrayList<Goods> findAllGoods(@RequestBody Goods goods){
-        System.out.println("得到数据"+goods.getSid());
+        System.out.println("得到数据"+goods.getStore_id());
         System.out.println("findall");
-        System.out.println(goodsService.findAllGooodsBySid(goods.getSid()).toString());
-        return goodsService.findAllGooodsBySid(goods.getSid());
+        System.out.println(goodsService.findAllGooodsBySid(goods.getStore_id()).toString());
+        return goodsService.findAllGooodsBySid(goods.getStore_id());
     }
 
+    /**
+     *添加商品
+     */
     @PostMapping("/add")
     Boolean addGoods(@RequestBody Goods goods){
-        System.out.println(goods.toString());
-        return goodsService.addStore(goods.getSid(),goods.getGname(),goods.getGimage(),goods.getGprices(),goods.getGlable(),goods.getGintroduce());
+        System.out.println("添加goods"+goods.toString());
+        return goodsService.addStore(goods.getStore_id(),goods.getGoods_time(),goods.getGoods_name(),goods.getGoods_photo(),goods.getGoods_prices(),goods.getGoods_stock(),goods.getGoods_lable(),goods.getGoods_description());
     }
 
 

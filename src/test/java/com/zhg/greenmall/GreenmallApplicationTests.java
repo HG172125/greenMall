@@ -29,7 +29,6 @@ class GreenmallApplicationTests {
     @Test
     void test02(){
 
-        System.out.println(goodsService.addStore(123,"123","123","123","123","123"));
     }
 
 
