@@ -44,4 +44,18 @@ public class UserController {
         System.out.println("查询结果："+userService.findUserByNameAndPassword(user.getUser_name(),user.getUser_password()));
        return userService.findUserByNameAndPassword(user.getUser_name(),user.getUser_password());
     }
+
+    @PostMapping("updete")
+    public Boolean updeteUser(@RequestBody User user){
+        System.out.println("修改用户"+user.getUser_id());
+        System.out.println(user.getUser_name());
+        System.out.println(user.getUser_address());
+        return userService.updateUser(user.getUser_name(),user.getUser_phone(),user.getUser_address(),user.getUser_id());
+    }
+
+    @PostMapping("updetePass")
+    public Boolean updeteUserPass(@RequestBody User user){
+        System.out.println("修改用户密码"+user.getUser_id());
+        return userService.updateUserPass(user.getUser_password(),user.getUser_id());
+    }
 }

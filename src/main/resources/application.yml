@@ -13,3 +13,7 @@ spring:
         - admin
   freemarker:
     check-template-location: false
+##pageHelper分页插件配置
+pagehelper:
+  ##方言配置为mysql数据库
+  helper-dialect: mysql

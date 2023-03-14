@@ -4,8 +4,9 @@ import lombok.Data;
 
 @Data
 public class User {
-    int user_id;
-    String user_name;
-    String user_password;
-    String user_phone;
+    int user_id;//用户id
+    String user_name;//用户姓名
+    String user_password;//用户密码
+    String user_phone;//用户电话
+    String user_address;//用户地址
 }
