@@ -8,6 +8,7 @@ import com.zhg.greenmall.entity.Store;
 import com.zhg.greenmall.entity.User;
 import com.zhg.greenmall.mapper.StoreMapper;
 import com.zhg.greenmall.mapper.UserMapper;
+import com.zhg.greenmall.service.AdminService;
 import com.zhg.greenmall.service.GoodsService;
 import com.zhg.greenmall.service.OrderService;
 import com.zhg.greenmall.service.StoreService;
@@ -28,6 +29,8 @@ class GreenmallApplicationTests {
     UserMapper userMapper;
     @Resource
     OrderService orderService;
+    @Resource
+    AdminService adminService;
 
     @Test
     void test01(){
@@ -43,7 +46,7 @@ class GreenmallApplicationTests {
     }
     @Test
     void test02(){
-        System.out.println(orderService.findTodaysOrder(123));
+        System.out.println(adminService.findAdminByNameAndPass("123","123"));
     }
 
 

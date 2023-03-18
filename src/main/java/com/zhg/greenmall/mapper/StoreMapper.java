@@ -23,6 +23,16 @@ public interface StoreMapper {
             "WHERE\n" +
             "\tstore.store_username = #{store_username}")
     Store findOneByName(String store_username);
+    /**
+     * sid查找
+     */
+    @Select("SELECT\n" +
+            "\tstore.*\n" +
+            "FROM\n" +
+            "\tstore\n" +
+            "WHERE\n" +
+            "\tstore.store_id = #{store_id}")
+    Store findOneById(int store_id);
 
     /**
      * 登录查询

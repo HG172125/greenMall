@@ -13,6 +13,14 @@ public class StoreServiceImpl implements StoreService {
     @Resource
     StoreMapper storeMapper;
 
+    /**
+     * sid查找
+     */
+    @Override
+    public Store findOneById(int store_id) {
+        return storeMapper.findOneById(store_id);
+    }
+
 
     @Override
     public boolean addStore(String store_name, String store_username, String store_password) {

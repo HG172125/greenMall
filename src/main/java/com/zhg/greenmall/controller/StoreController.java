@@ -19,6 +19,16 @@ public class StoreController {
       return "tett";
     }
 
+    /**
+     * 通过sid查找
+     *
+     */
+    @PostMapping("/findOneBySid")
+    public Store findOneBySid(@RequestBody Store store){
+        System.out.println("通过sid查找用户信息"+store.getStore_id());
+        System.out.println(storeService.findOneById(store.getStore_id()));
+        return storeService.findOneById(store.getStore_id());
+    }
 
     /**
      * 商户注册
