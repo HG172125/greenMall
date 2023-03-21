@@ -16,8 +16,8 @@
     <properties>
         <java.version>11</java.version>
     </properties>
-    <dependencies>
 
+    <dependencies>
         <!-- pageHelper分页 -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>

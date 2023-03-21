@@ -34,19 +34,7 @@ class GreenmallApplicationTests {
 
     @Test
     void test01(){
-
-        /**
-         * pagehelp
-         */
-        PageHelper.startPage(1, 4);
-        ArrayList<User> pageGoods =  userMapper.findAllUser();
-        System.out.println(pageGoods);
-        PageInfo page = new PageInfo(pageGoods);
-        System.out.println("pageinfo"+page.getEndRow());
-    }
-    @Test
-    void test02(){
-        System.out.println(adminService.findAdminByNameAndPass("123","123"));
+        System.out.println(orderService.findWeeksOrder());
     }
 
 

@@ -15,6 +15,26 @@ public class OrderServiceImpl implements OrderService {
     @Resource
     OrderMapper orderMapper;
 
+    @Override
+    public List<Order> findWeeksOrder() {
+        return orderMapper.findWeeksOrder();
+    }
+
+    @Override
+    public int daysOreder() {
+        return orderMapper.daysOreder();
+    }
+
+    @Override
+    public int mouthOreder() {
+        return orderMapper.mouthOreder();
+    }
+
+    @Override
+    public int yearsOrder() {
+        return orderMapper.yearsOrder();
+    }
+
     /**
      * 查询所有下单
      */

@@ -10,10 +10,25 @@ import org.apache.ibatis.annotations.Update;
 import java.util.List;
 
 public interface OrderService {
+    List<Order> findWeeksOrder();
+
+    /**
+     * 查询今日订单
+     */
+    int daysOreder();
+    /**
+     * 查询月订单
+     */
+    int mouthOreder();
+    /**
+     * 查询年订单
+     */
+    int yearsOrder();
+
+
     /**
      * 查询所有下单
      */
-
     Order findAllOrder(int store_id);
     /**
      * 查询今日下单

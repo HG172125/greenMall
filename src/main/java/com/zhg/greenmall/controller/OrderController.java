@@ -17,6 +17,33 @@ public class OrderController {
     @Resource
     OrderService orderService;
 
+    @PostMapping("/findWeeksOrder")
+    public List<Order> findWeeksOrder() {
+        return orderService.findWeeksOrder();
+    }
+
+    /**
+     * 查询今日订单
+     */
+    @PostMapping("/findDaysOrder")
+    public int daysOreder() {
+        return orderService.daysOreder();
+    }
+    /**
+     * 查询月订单
+     */
+    @PostMapping("/findMouthOreder")
+    public int mouthOreder() {
+       return orderService.mouthOreder();
+    }
+    /**
+     * 查询年订单
+     */
+    @PostMapping("/findYearsOrder")
+    public int yearsOrder() {
+        return orderService.yearsOrder();
+    }
+
     /**
      * 查询所有下单
      */

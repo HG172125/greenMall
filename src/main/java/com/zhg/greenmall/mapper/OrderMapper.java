@@ -10,9 +10,69 @@ import java.util.List;
 @Mapper
 public interface OrderMapper {
     /**
+     * 查询近七日订单
+     */
+    @Select("select d.date order_time, IFNULL(T.order_goodsnumber,0) order_goodsnumber from \n" +
+            "(\n" +
+            "    SELECT CURDATE() AS date\n" +
+            "    UNION ALL\n" +
+            "    SELECT DATE_SUB(CURDATE(), INTERVAL 1 DAY) AS date\n" +
+            "    UNION ALL\n" +
+            "    SELECT DATE_SUB(CURDATE(), INTERVAL 2 DAY) AS date\n" +
+            "    UNION ALL\n" +
+            "    SELECT DATE_SUB(CURDATE(), INTERVAL 3 DAY) AS date\n" +
+            "    UNION ALL\n" +
+            "    SELECT DATE_SUB(CURDATE(), INTERVAL 4 DAY) AS date\n" +
+            "    UNION ALL\n" +
+            "    SELECT DATE_SUB(CURDATE(), INTERVAL 5 DAY) AS date\n" +
+            "    UNION ALL\n" +
+            "    SELECT DATE_SUB(CURDATE(), INTERVAL 6 DAY) AS date\n" +
+            ")  d\n" +
+            "left join(\n" +
+            "    select DATE_FORMAT(order_time,'%y-%m-%d') AS order_time , SUM(order_goodsnumber) as order_goodsnumber\n" +
+            "    from `order`\n" +
+            "    group by order_time\n" +
+            ") T on T.order_time = d.date\n" +
+            "GROUP BY d.date")
+    List<Order> findWeeksOrder();
+
+
+    /**
+     * 查询今日订单
+     */
+    @Select("SELECT\n" +
+            "\tCOUNT(`order`.order_id) AS number\n" +
+            "FROM\n" +
+            "\t`order`\n" +
+            "WHERE\n" +
+            "\tto_days(order_time) = to_days(now())")
+    int daysOreder();
+    /**
+     * 查询月订单
+     */
+    @Select("SELECT\n" +
+            "\tCOUNT(`order`.order_id) AS number\n" +
+            "FROM\n" +
+            "\t`order`\n" +
+            "WHERE\n" +
+            "\tDATE_SUB(CURDATE(),INTERVAL 30 DAY) <= DATE(order_time) AND\n" +
+            "\t`order`.order_state <> '已加购'")
+    int mouthOreder();
+    /**
+     * 查询年订单
+     */
+    @Select("SELECT\n" +
+            "\tCOUNT(`order`.order_id) AS number\n" +
+            "FROM\n" +
+            "\t`order`\n" +
+            "WHERE\n" +
+            "\t`order`.order_state <> '已加购' ")
+    int yearsOrder();
+
+
+    /**
      * 查询所有下单
      */
-
     @Select("SELECT\n" +
             "\tCOUNT(`order`.order_id) AS order_goodsnumber\n" +
             "FROM\n" +
