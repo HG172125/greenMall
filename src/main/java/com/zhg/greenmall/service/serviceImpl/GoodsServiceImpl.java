@@ -15,6 +15,33 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Resource
     GoodsMapper goodsMapper;
+    /**
+     * 修改商品状态
+     */
+    @Override
+    public Boolean updateState(String goods_state, int goods_id) {
+        System.out.println("修改商品状态"+goods_id+goods_state);
+        try {
+            goodsMapper.updateState(goods_state,goods_id);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    /**
+     * 查询所有商品
+     **/
+    @Override
+    public List<GoodsShow> findAllGoods(){
+        return goodsMapper.findAllGoods();
+    }
+
+    @Override
+    public List<Goods> findAllHotGoods() {
+        System.out.println("all hotgoods");
+        return goodsMapper.findAllHotGoods();
+    }
 
     /**
      * 查询销量前8商品 id name 销量

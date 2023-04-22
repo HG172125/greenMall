@@ -34,7 +34,7 @@ class GreenmallApplicationTests {
 
     @Test
     void test01(){
-        System.out.println(orderService.findWeeksOrder());
+        System.out.println();
     }
 
 

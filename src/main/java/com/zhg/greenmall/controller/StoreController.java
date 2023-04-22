@@ -1,10 +1,12 @@
 package com.zhg.greenmall.controller;
 
+import com.zhg.greenmall.entity.GoodsShow;
 import com.zhg.greenmall.entity.Store;
 import com.zhg.greenmall.service.StoreService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -14,9 +16,38 @@ public class StoreController {
     @Resource
     StoreService storeService;
 
-    @GetMapping("/test")
-    String test(){
-      return "tett";
+    /**
+     * 修改店铺状态
+     */
+    @PostMapping("/updateStoreState")
+    public Boolean updateStoreState(@RequestBody Store store){
+        return storeService.updateStoreState(store.getStore_state(),store.getStore_id());
+    }
+
+    /**
+     * 修改密码
+     *
+     */
+    @PostMapping("/updatePassword")
+    public Boolean updatePassword(@RequestBody Store store){
+        return storeService.updatePassword(store.getStore_password(),store.getStore_id());
+    }
+
+
+    /**
+     * 查询店铺信息
+     */
+   @PostMapping("/findAllStore")
+   public List<GoodsShow> findAllStore(){
+       return storeService.findAllStore();
+   }
+
+    /**
+     * 查询所有店铺销量
+     */
+    @PostMapping("findHotStore")
+    public List<Store> findHotStore() {
+        return storeService.findHotStore();
     }
 
     /**

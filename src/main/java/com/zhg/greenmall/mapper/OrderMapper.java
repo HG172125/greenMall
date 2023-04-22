@@ -9,6 +9,48 @@ import java.util.List;
 
 @Mapper
 public interface OrderMapper {
+
+    /**
+     * 查询所有订单状态
+     * */
+    @Select("SELECT\n" +
+            "\t`order`.order_id, \n" +
+            "\t`user`.user_name, \n" +
+            "\t`order`.order_state, \n" +
+            "\tgoods.goods_name, \n" +
+            "\tstore.store_name, \n" +
+            "\tgoods.goods_photo, \n" +
+            "\tgoods.goods_prices, \n" +
+            "\t`order`.order_goodsnumber\n" +
+            "FROM\n" +
+            "\t`order`\n" +
+            "\tINNER JOIN\n" +
+            "\t`user`\n" +
+            "\tON \n" +
+            "\t\t`order`.user_id = `user`.user_id\n" +
+            "\tINNER JOIN\n" +
+            "\tgoods\n" +
+            "\tON \n" +
+            "\t\t`order`.goods_id = goods.goods_id\n" +
+            "\tINNER JOIN\n" +
+            "\tstore\n" +
+            "\tON \n" +
+            "\t\tgoods.store_id = store.store_id\n")
+    List<GoodsShow> findAllOrderInfo();
+
+
+    /**
+     * 查询所有订单状态
+     */
+    @Select("SELECT\n" +
+            "\tCOUNT(`order`.order_id) AS order_goodsnumber, \n" +
+            "\t`order`.order_state\n" +
+            "FROM\n" +
+            "\t`order`\n" +
+            "GROUP BY\n" +
+            "\t`order`.order_state")
+    List<Order> findAllOrderState();
+
     /**
      * 查询近七日订单
      */
@@ -121,7 +163,7 @@ public interface OrderMapper {
 
 
     /**
-     * 通过gid删除商品
+     * 通过id删除
      */
     @Delete("DELETE FROM `order` WHERE order_id=#{order_id}")
     void deleteOrderByOid(int order_id);
@@ -202,9 +244,13 @@ public interface OrderMapper {
     /**
      * 添加订单
      */
-    @Insert("insert into `order`(user_id,goods_id,order_goodsnumber,order_time,order_state) " +
-            "values (#{user_id},#{goods_id},#{order_goodsnumber},#{order_time},#{order_state})")
-    void addOrder(int user_id,int goods_id,int order_goodsnumber,String order_time,String order_state);
+    @Insert("insert into `order`" +
+            "(user_id,goods_id,order_goodsnumber," +
+            "order_time,order_state) " +
+            "values (#{user_id},#{goods_id}," +
+            "#{order_goodsnumber},#{order_time},#{order_state})")
+    void addOrder(int user_id,int goods_id,int order_goodsnumber,
+                  String order_time,String order_state);
 
     @Select("SELECT\n" +
             "\t`user`.user_phone, \n" +

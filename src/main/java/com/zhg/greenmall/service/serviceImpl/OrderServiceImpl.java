@@ -15,9 +15,16 @@ public class OrderServiceImpl implements OrderService {
     @Resource
     OrderMapper orderMapper;
 
+
+
     @Override
     public List<Order> findWeeksOrder() {
         return orderMapper.findWeeksOrder();
+    }
+
+    @Override
+    public List<Order> findAllOrderState() {
+        return orderMapper.findAllOrderState();
     }
 
     @Override
@@ -57,6 +64,12 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
+    public List<GoodsShow> findAllOrderInfo() {
+        return orderMapper.findAllOrderInfo();
+    }
+
+
+    @Override
     public List<Order> findOrderByState(int store_id) {
         return orderMapper.findOrderByState(store_id);
     }
@@ -87,7 +100,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 通过oid删除商品
+     * 通过oid删除
      */
     @Override
     public Boolean deleteOrderByOid(int order_id) {

@@ -8,4 +8,6 @@ public class Store {
     String store_name;//店铺名字
     String store_username;//店铺用户名
     String store_password;//店铺登录密码
+    String store_state;
+    String store_number;
 }

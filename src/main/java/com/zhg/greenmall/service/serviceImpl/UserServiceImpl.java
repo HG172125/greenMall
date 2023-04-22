@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.lang.annotation.ElementType;
+import java.util.List;
 
 
 @Service
@@ -17,13 +18,28 @@ public class UserServiceImpl implements UserService {
     @Resource
     UserMapper userMapper;
 
+    @Override
+    public Boolean deleteUserByUid(int user_id) {
+        try {
+            userMapper.deleteUserByUid(user_id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    @Override
+    public List<User> findAllUser() {
+        return userMapper.findAllUser();
+    }
+
     /**
      *添加用户
      */
     @Override
-    public boolean addUser(String username, String password) {
+    public Boolean addUser(String user_name,String user_password,String user_time,String user_phone,String user_address) {
         try {
-            userMapper.addUser(username,password);
+            userMapper.addUser(user_name,user_password,user_time,user_phone,user_address);
             return true;
         }catch (Exception e){
             return false;
@@ -57,6 +73,20 @@ public class UserServiceImpl implements UserService {
     public Boolean updateUserPass(String user_password, int user_id) {
         try {
             userMapper.updateUserPass(user_password,user_id);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    /**
+     * 修改用户状态
+     */
+    @Override
+    public Boolean updateUserState(String user_state, int user_id) {
+        System.out.println("修改用户状态"+user_id+user_state);
+        try {
+            userMapper.updateUserState(user_state,user_id);
             return true;
         }catch (Exception e){
             return false;

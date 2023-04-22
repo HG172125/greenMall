@@ -12,11 +12,15 @@ public class GoodsShow {
     String goods_stock;// 商品库存
     String goods_lable;// 商品标签
     String goods_description;// 商品描述
+    String goods_state;
 
 
     int store_id;//店铺id
     String store_name;//店铺名字
     String store_username;//店铺用户名
+    String store_time;
+    String store_state;
+    String store_number;
 
     int order_id;
     int user_id;
@@ -28,4 +32,5 @@ public class GoodsShow {
     String user_password;//用户密码
     String user_phone;//用户电话
     String user_address;//用户地址
+    String user_state;
 }

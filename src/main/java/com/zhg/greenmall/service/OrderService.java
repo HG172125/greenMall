@@ -2,15 +2,16 @@ package com.zhg.greenmall.service;
 
 import com.zhg.greenmall.entity.GoodsShow;
 import com.zhg.greenmall.entity.Order;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
 public interface OrderService {
     List<Order> findWeeksOrder();
+
+    /**
+     * 查询所有订单状态
+     */
+   List<Order> findAllOrderState();
 
     /**
      * 查询今日订单
@@ -35,6 +36,8 @@ public interface OrderService {
      */
     Order findTodaysOrder(int store_id);
 
+    List<GoodsShow> findAllOrderInfo();
+
     List<Order>findOrderByState(int store_id);
 
     List<GoodsShow> findYixiadanBsid(int sid);
@@ -45,9 +48,8 @@ public interface OrderService {
     List<GoodsShow> findOrderbyYixiadan(int user_id);
 
     /**
-     * 通过gid删除商品
+     * 通过id删除
      */
-    @Delete("DELETE FROM `order` WHERE goods_id=#{order_id}")
     Boolean deleteOrderByOid(int order_id);
 
     /**

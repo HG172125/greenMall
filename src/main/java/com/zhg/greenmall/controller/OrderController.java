@@ -5,6 +5,7 @@ import com.zhg.greenmall.entity.Order;
 import com.zhg.greenmall.entity.Store;
 import com.zhg.greenmall.entity.User;
 import com.zhg.greenmall.service.OrderService;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -16,6 +17,20 @@ import java.util.List;
 public class OrderController {
     @Resource
     OrderService orderService;
+
+    @PostMapping("findAllOrderInfo")
+    public List<GoodsShow> findAllOrderInfo(){
+        return orderService.findAllOrderInfo();
+    }
+
+    /**
+     * 查询所有订单状态
+     */
+    @PostMapping("/findAllOrderState")
+    List<Order> findAllOrderState() {
+        return orderService.findAllOrderState();
+    }
+
 
     @PostMapping("/findWeeksOrder")
     public List<Order> findWeeksOrder() {
@@ -121,11 +136,15 @@ public class OrderController {
         return orderService.findOrderbyUidCart(user.getUser_id());
     }
 
+    /**
+     * 添加购物车
+     */
     @PostMapping("/insert")
     Boolean addOrder(@RequestBody Order order){
         System.out.println("添加订单"+order);
-        return orderService.addOrder(order.getUser_id(),order.getGoods_id(),order.getOrder_goodsnumber(),order.getOrder_time(),order.getOrder_state());
-
+        return orderService.addOrder(order.getUser_id(),
+                order.getGoods_id(),order.getOrder_goodsnumber(),
+                order.getOrder_time(),order.getOrder_state());
     }
 
     /**
