@@ -57,8 +57,6 @@ public class UserController {
      */
     @PostMapping("/login")
     public User login(@RequestBody User user){
-        System.out.println("登录查询用户"+user);
-        System.out.println("查询结果："+userService.findUserByNameAndPassword(user.getUser_name(),user.getUser_password()));
        return userService.findUserByNameAndPassword(user.getUser_name(),user.getUser_password());
     }
 
