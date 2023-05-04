@@ -104,7 +104,8 @@ public interface StoreMapper {
             "\tstore\n" +
             "WHERE\n" +
             "\tstore.store_username = #{store_username} AND\n" +
-            "\tstore.store_password = #{store_password}")
+            "\tstore.store_password = #{store_password} AND" +
+            "\t`store`.store_state <> '禁用'")
     Store findOneByNameAndPass(String store_username,String store_password);
 
 }

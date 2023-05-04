@@ -55,18 +55,15 @@ public class GoodsServiceImpl implements GoodsService {
      * 通过信息查找商品
      */
     @Override
-    public List<Goods> findGoodsBySelect(String sel) {
+    public List<Goods> findGoodsBySelect(String sel) { return goodsMapper.findGoodsBySelect(sel); }
 
-       return goodsMapper.findGoodsBySelect(sel);
-    }
+
 
     /**
      * 查询水果商品
      */
     @Override
-    public List<Goods> findFruitGoods() {
-        return goodsMapper.findFruitGoods();
-    }
+    public List<Goods> findFruitGoods() { return goodsMapper.findFruitGoods(); }
 
     /**
      * 查询蔬菜商品
@@ -75,6 +72,20 @@ public class GoodsServiceImpl implements GoodsService {
     public List<Goods> findVegetableGoods(){
         return goodsMapper.findVegetableGoods();
     }
+
+    /**
+     * 查询新添加商品
+     */
+    @Override
+    public List<GoodsShow> findNewGoods() { return goodsMapper.findNewGoods(); }
+
+    //    GoodsService类
+    /**
+     * 查询热门商品
+     */
+    @Override
+    public List<GoodsShow> findHotGoods() { return goodsMapper.findHotGoods(); }
+
 
     /**
      * 修改库存
@@ -89,21 +100,7 @@ public class GoodsServiceImpl implements GoodsService {
         }
     }
 
-    /**
-     * 查询新添加商品
-     */
-    @Override
-    public List<GoodsShow> findNewGoods() {
-        return goodsMapper.findNewGoods();
-    }
 
-    /**
-     * 查询热门商品
-     */
-    @Override
-    public List<GoodsShow> findHotGoods() {
-        return goodsMapper.findHotGoods();
-    }
 
     /**
      *添加

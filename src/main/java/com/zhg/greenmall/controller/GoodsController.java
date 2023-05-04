@@ -58,6 +58,14 @@ public class GoodsController {
         System.out.println("查询热门商品销量"+store.getStore_id());
         return goodsService.findgoodsNumberBysid(store.getStore_id());
     }
+    /**
+     * 修改商品库存
+     */
+    @PostMapping("updateStock")
+    boolean updateStock(@RequestBody Goods goods){
+        System.out.println("xiugai"+goods.getGoods_stock()+"-"+goods.getGoods_id());
+        return goodsService.updateStock(goods.getGoods_stock(),goods.getGoods_id());
+    }
 
 
     /**
@@ -86,16 +94,6 @@ public class GoodsController {
     }
 
     /**
-     * 修改商品库存
-     */
-    @PostMapping("updateStock")
-    boolean updateStock(@RequestBody Goods goods){
-        System.out.println("xiugai"+goods.getGoods_stock()+"-"+goods.getGoods_id());
-       return goodsService.updateStock(goods.getGoods_stock(),goods.getGoods_id());
-    }
-
-
-    /**
      * 查询新添加商品
      */
     @PostMapping("newGoods")
@@ -103,6 +101,7 @@ public class GoodsController {
         return goodsService.findNewGoods();
     }
 
+    //  GoodsController类
     /**
      * 查询热门商品
      */

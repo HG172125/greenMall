@@ -160,6 +160,8 @@ public interface GoodsMapper {
             "\tgoods.goods_time DESC")
     ArrayList<Goods> findAllGooodsBySid(int store_id);
 
+
+//  GoodsMapper类
     /**
      * 查询热门商品
      */
