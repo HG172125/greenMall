@@ -80,9 +80,12 @@ public interface GoodsMapper {
             "\tON \n" +
             "\t\tgoods.goods_id = `order`.goods_id\n" +
             "WHERE\n" +
-            "\tgoods.store_id = #{store_id}\n" +
+            "\tgoods.store_id = 123\n" +
             "GROUP BY\n" +
-            "\tgoods.goods_id")
+            "\tgoods.goods_id\n" +
+            "ORDER BY\n" +
+            "\tSUM(`order`.order_goodsnumber) DESC\n" +
+            "LIMIT 8")
     List<Goods> findgoodsNumberBysid(int store_id);
 
 
