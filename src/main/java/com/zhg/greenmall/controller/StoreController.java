@@ -67,7 +67,7 @@ public class StoreController {
     @PostMapping("/add")
     Boolean addStore(@RequestBody Store store){
         System.out.println(store);
-        return storeService.addStore(store.getStore_name(),store.getStore_username(),store.getStore_password());
+        return storeService.addStore(store.getStore_time(),store.getStore_name(),store.getStore_username(),store.getStore_password(),store.getStore_state());
 
     }
 

@@ -45,6 +45,7 @@ public interface GoodsService {
     List<GoodsShow> findNewGoods();
 
     List<GoodsShow> findHotGoods();
+
    boolean addStore(int store_id,String goods_time,String goods_name,String goods_photo,
                     String goods_prices,String goods_stock,String goods_lable,String goods_description);
 
@@ -54,8 +55,10 @@ public interface GoodsService {
 
     boolean updateGoods(String goods_name,String goods_photo,String goods_prices,
                         String goods_stock,String goods_lable,String goods_description,int goods_id);
+
     boolean deleteGoodsByGid(int gid);
 
     List<Goods> findFruitGoods();
+
     List<Goods> findVegetableGoods();
 }

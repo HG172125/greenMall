@@ -20,7 +20,7 @@ public interface StoreService {
     List<GoodsShow> findAllStore();
 
     List<Store> findHotStore();
-    boolean addStore(String store_name,String store_username,String store_password);
+    boolean addStore(String store_time,String store_name,String store_username,String store_password,String store_state);
     Store findOneByName(String store_username);
     Store findOneByNameAndPass(String store_username,String store_password);
     /**

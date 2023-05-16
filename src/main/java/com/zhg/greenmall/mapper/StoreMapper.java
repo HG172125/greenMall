@@ -71,8 +71,9 @@ public interface StoreMapper {
     /**
      *添加商户
      */
-    @Insert("insert into store(store_name,store_username,store_password) VALUES(#{store_name},#{store_username},#{store_password})")
-    void addStore(String store_name,String store_username,String store_password);
+    @Insert("insert into store(store_time,store_name,store_username,store_password,store_state) " +
+            "VALUES(#{store_time},#{store_name},#{store_username},#{store_password},#{store_state})")
+    void addStore(String store_time,String store_name,String store_username,String store_password,String store_state);
 
     /**
      * 姓名查找

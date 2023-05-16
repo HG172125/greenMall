@@ -60,9 +60,9 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
-    public boolean addStore(String store_name, String store_username, String store_password) {
+    public boolean addStore(String store_time,String store_name,String store_username,String store_password,String store_state) {
       try {
-          storeMapper.addStore(store_name,store_username,store_password);
+          storeMapper.addStore(store_time,store_name,store_username,store_password,store_state);
           return true;
       }catch (Exception e){
           return false;
