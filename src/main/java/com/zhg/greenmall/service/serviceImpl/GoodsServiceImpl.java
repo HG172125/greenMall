@@ -79,7 +79,7 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public List<GoodsShow> findNewGoods() { return goodsMapper.findNewGoods(); }
 
-    //    GoodsService类
+    //GoodsService类
     /**
      * 查询热门商品
      */

@@ -164,7 +164,7 @@ public interface GoodsMapper {
     ArrayList<Goods> findAllGooodsBySid(int store_id);
 
 
-//  GoodsMapper类
+    //  GoodsMapper类
     /**
      * 查询热门商品
      */

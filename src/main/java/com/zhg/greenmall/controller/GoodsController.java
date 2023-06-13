@@ -93,13 +93,7 @@ public class GoodsController {
         return goodsService.findVegetableGoods();
     }
 
-    /**
-     * 查询新添加商品
-     */
-    @PostMapping("newGoods")
-    List<GoodsShow> findNewGoods() {
-        return goodsService.findNewGoods();
-    }
+
 
     //  GoodsController类
     /**
@@ -108,6 +102,13 @@ public class GoodsController {
     @PostMapping("/hotGoods")
     List<GoodsShow> findHotGoods(){
         return goodsService.findHotGoods();
+    }
+    /**
+     * 查询新添加商品
+     */
+    @PostMapping("/newGoods")
+    List<GoodsShow> findNewGoods() {
+        return goodsService.findNewGoods();
     }
 
 
